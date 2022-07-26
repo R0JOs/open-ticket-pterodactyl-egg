@@ -1,0 +1,92 @@
+{
+    "_comment": "DO NOT EDIT: FILE GENERATED AUTOMATICALLY BY PTERODACTYL PANEL - PTERODACTYL.IO",
+    "meta": {
+        "version": "PTDL_v2",
+        "update_url": null
+    },
+    "exported_at": "2022-07-26T19:04:05+02:00",
+    "name": "OpenTicket AutoInstall",
+    "author": "support@helixcomm.com",
+    "description": "Automatic install for OpenTicket Discord Bot (https:\/\/github.com\/DJj123dj\/open-ticket)",
+    "features": null,
+    "docker_images": {
+        "ghcr.io\/parkervcp\/yolks:nodejs_16": "ghcr.io\/parkervcp\/yolks:nodejs_16"
+    },
+    "file_denylist": [],
+    "startup": "if [[  {{SLASH}} == \"1\" ]]; then cd \/home\/container\/core\/slashSystem\/; npm run slashEnable; else cd \/home\/container\/core\/slashSystem\/; npm run slashDisable; fi; npm index.js",
+    "config": {
+        "files": "{\r\n    \"config.json\": {\r\n        \"parser\": \"json\",\r\n        \"find\": {\r\n            \"auth_token\": \"{{env.TOKEN}}\",\r\n            \"languagefile\": \"{{env.LANGUAGE}}\",\r\n            \"server_id\": \"{{env.SERVER_ID}}\",\r\n            \"bot_name\": \"{{env.BOT_NAME}}\"\r\n        }\r\n    }\r\n}",
+        "startup": "{\r\n    \"done\": \"change this part\"\r\n}",
+        "logs": "{}",
+        "stop": "^^C"
+    },
+    "scripts": {
+        "installation": {
+            "script": "#!\/bin\/bash\r\n# Server Files: \/mnt\/server\r\napt update\r\napt install -y git curl jq file unzip make gcc g++ python python-dev libtool\r\nmkdir -p \/mnt\/server\r\ncd \/mnt\/server\r\napt install curl && curl -sL https:\/\/deb.nodesource.com\/setup_12.x | sudo -E bash - && sudo apt-get install nodejs\r\ngit clone --single-branch --branch ${BRANCH} https:\/\/github.com\/DJj123dj\/open-ticket.git\r\nmv -v \/mnt\/server\/open-ticket\/* \/mnt\/server\/\r\nnpm i\r\necho -e \"Install complete\"\r\nexit 0",
+            "container": "node:14-buster-slim",
+            "entrypoint": "bash"
+        }
+    },
+    "variables": [
+        {
+            "name": "Your bot token",
+            "description": "Set here your bot token, it will be automatically updated on every startup and reinstall.",
+            "env_variable": "TOKEN",
+            "default_value": "TOKEN_HERE",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "required|string",
+            "field_type": "text"
+        },
+        {
+            "name": "Language",
+            "description": "Avariable languages: english, dutch, french, arabic, german, romanian, spanish and custom.",
+            "env_variable": "LANGUAGE",
+            "default_value": "english",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "required|string|max:10",
+            "field_type": "text"
+        },
+        {
+            "name": "Branch",
+            "description": "Avariable options: main, dev.",
+            "env_variable": "BRANCH",
+            "default_value": "main",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "required|string|max:20",
+            "field_type": "text"
+        },
+        {
+            "name": "Bot Name",
+            "description": "Set here your bot name, it will appear in multiple embeds!",
+            "env_variable": "BOT_NAME",
+            "default_value": "Open-Ticket",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "required|string",
+            "field_type": "text"
+        },
+        {
+            "name": "Slash Commands",
+            "description": "",
+            "env_variable": "SLASH",
+            "default_value": "1",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "required|boolean",
+            "field_type": "text"
+        },
+        {
+            "name": "Server ID",
+            "description": "Enable developer mode and right click on the server icon to see it.",
+            "env_variable": "SERVER_ID",
+            "default_value": "SERVERID_HERE",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "required|string|max:30",
+            "field_type": "text"
+        }
+    ]
+}
