@@ -3,8 +3,8 @@
         "missingArgsTitle":"¡Argumentos inválidos!",
         "missingArgsDescription":"Argumento faltante.",
         "noPermsTitle":"¡Sin permisos!",
-        "noPermsDescription":"You need the `ADMINISTRATOR` permission or be in the list of allowed roles!",
-        "noPermsDelete":"Only admins can delete a ticket!",
+        "noPermsDescription":"¡Necesitas el permiso `ADMINISRATOR` o estar en la lista de roles permitidos!",
+        "noPermsDelete":"¡Solo administradores pueden eliminar tickets!",
         "chooseFromListTitle":"ID Invalida",
         "chooseFromListDescription":"Elije una de las ID de abajo:",
         "boterror":"¡Error del bot!",
@@ -19,18 +19,18 @@
         "somethingWentWrongTranscript":"**¡Algo salió mal al hacer el transcript!**\n¡Prueba en otro momento!"
     },
     "commands":{
-        "userAddedTitle":"Added {0} to this ticket!",
-        "userRemovedTitle":"Removed {0} from this ticket!",
-        "renameTitle":"Changed the name to {0}!",
-        "closeTitle":"Closed this ticket!",
-        "deleteTitle":"Deleting this ticket...",
-        "reopenTitle":"Re-Opened this ticket!",
+        "userAddedTitle":"¡{0} fué agregado al ticket!",
+        "userRemovedTitle":"¡{0} fué eliminado del ticket!",
+        "renameTitle":"¡Nombre cambiado a {0}!",
+        "closeTitle":"¡Ticket cerrado!",
+        "deleteTitle":"Eliminando el ticket...",
+        "reopenTitle":"¡Ticket re-abierto!",
 
-        "ticketWarning":"The embed is in the message below!",
-        "maxTicketWarning":"**Warning:** _You can only create {0} ticket(s) at a time!_"
+        "ticketWarning":"¡El embed se encuentra en el mensaje de abajo!",
+        "maxTicketWarning":"**Aviso:** _¡Solo puedes poseer {0} ticket(s) simultáneamente!_"
     },
     "helpMenu":{
-        "title":"Available Commands:",
+        "title":"Comandos disponibles:",
         "header1":"**¡Dirígete a {0} para crear un nuevo ticket!**\n\n",
         "header2":"**¡Ejecuta el comando `/new` o `/ticket` para crear un ticket!**\n\n",
 
